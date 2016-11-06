@@ -18,10 +18,12 @@ router.get('/', function(req, res, next) {
 
 //respond to incoming pusher events
 router.post('/', function(req, res, next) {
+  var socketID = req.body.socketId;
+  console.log('message from ' + socketID);
   var content = req.body.message;
+  var room = req.body.room;
   console.log('sending ' + content);
-  pusher.trigger('test_channel', 'my_event', {'message': content});
-  //res.render('message', { title: 'boom' });
+  pusher.trigger(room, 'my_event', {'message': content});
 });
 
 module.exports = router;

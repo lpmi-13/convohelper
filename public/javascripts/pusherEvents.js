@@ -1,12 +1,27 @@
 $(function() {
 
+	var chatRoomNamesArray = ['DeepPink', 'LightSalmon', 'Crimson', 'Red', 'DarkOrange', 'DarkKhaki',
+		'RosyBrown', 'Sienna', 'Maroon', 'LawnGreen', 'MediumAquaMarin', 'DarkGreen', 'DarkTurquoise',
+		'LightSteelBlue', 'RoyalBlue', 'Thistle', 'Magenta', 'Indigo', 'DimGray'];
+
+	var randomNumber = Math.floor(Math.random() * chatRoomNamesArray.length);
+	console.log('randomNumber = ' + randomNumber);
+
+	var chatRoomName = chatRoomNamesArray[randomNumber];
 
 	var pusher = new Pusher('c6580e938510ff65438a', {
 		cluster: 'eu',
 		encrypted: true 
 	});
 
-	var channel = pusher.subscribe('test_channel');
+	var socketId;
+
+	pusher.connection.bind('connected', function() {
+		socketId = pusher.connection.socket_id;
+		console.log(socketId);
+	});
+
+	var channel = pusher.subscribe(chatRoomName);
 	channel.bind('my_event', function(data) {
 		//add new message to the container
 		$('.messages_display').append('<p class="message_item">' + data.message + '</p>');
@@ -47,14 +62,17 @@ $(function() {
 
 		var message = $('.chat_box .input_message').val();
 		var name = $('.chat_box .input_name').val();
+		var room = chatRoomName;
 
 		if (name === '') {
-			bootbox.alert('<br /><p class = "bg-danger">Please enter a name.</p>');
+			bootbox.alert('<br/><p class="bg-danger">Please enter a name.</p>');
 
 		} else if (message !== '') {
 			var chat_message = {
 				name: $('.chat_box .input_name').val(),
-				message: '<strong>' + $('.chat_box .input_name').val() + '</strong>' + message
+				room: room,
+				socketId : socketId,
+				message: '<strong>' + $('.chat_box .input_name').val() + '</strong>: ' + message
 			}
 
 			//send to server at route "/messages"
@@ -62,13 +80,12 @@ $(function() {
 
 			$('.chat_box .input_message').val('');
 
-			$('.input_send_holder').html('<input type = "submit" value = "Send" class = "btn btn-primary" disabled /> &nbsp;<img src = "images/loader.gif"/>');
+			$('.input_send_holder').html('<input type="submit" value="Send" class="btn btn-primary" disabled/> &nbsp;<img src="images/loader.gif"/>');
 		}
 	});
 
 	//send message on enter key click
 	$('.chat_box .input_message').enterKey(function(e) {
-		console.log('enter pressed');
 		e.preventDefault();
 		$('.chat_box .input_send').click();
 	});
