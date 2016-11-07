@@ -25,10 +25,6 @@ $(function() {
 	channel.bind('my_event', function(data) {
 		//add new message to the container
 		$('.messages_display').append('<p class="message_item">' + data.message + '</p>');
-		//show the send button
-		$('.input_send_holder').html('<input type = "submit" value = "Send" class = "btn btn-primary input_send" />');
-		//scroll to bottom of container when new message available
-		$('.messages_display').scrollTop($('.messages_display')[0].scrollHeight);
 	});
 
 	function ajaxCall(ajax_url, ajax_data) {
@@ -57,37 +53,29 @@ $(function() {
 	}
 
 	//send message
-	$('body').on('click', '.chat_box .input_send', function(e) {
+	$('body').on('click', '.input_send', function(e) {
 		e.preventDefault();
 
-		var message = $('.chat_box .input_message').val();
-		var name = $('.chat_box .input_name').val();
 		var room = chatRoomName;
 
-		if (name === '') {
-			bootbox.alert('<br/><p class="bg-danger">Please enter a name.</p>');
-
-		} else if (message !== '') {
-			var chat_message = {
-				name: $('.chat_box .input_name').val(),
-				room: room,
-				socketId : socketId,
-				message: '<strong>' + $('.chat_box .input_name').val() + '</strong>: ' + message
-			}
-
-			//send to server at route "/messages"
-			ajaxCall('http://localhost:3000/messages', chat_message);
-
-			$('.chat_box .input_message').val('');
-
-			$('.input_send_holder').html('<input type="submit" value="Send" class="btn btn-primary" disabled/> &nbsp;<img src="images/loader.gif"/>');
+		bootbox.alert('<br/><p class="bg-danger">I\'d like to say something</p>');
+		
+		var chat_message = {
+			room: room,
+			socketId : socketId,
 		}
+
+		//send to server at route "/messages"
+		ajaxCall('http://localhost:3000/messages', chat_message);
+
+		$('.input_send_holder').html('<img src="images/loader.gif"/>');
+		
 	});
 
 	//send message on enter key click
-	$('.chat_box .input_message').enterKey(function(e) {
+	$('body').enterKey(function(e) {
 		e.preventDefault();
-		$('.chat_box .input_send').click();
+		$('.input_send').click();
 	});
 
 });

@@ -20,10 +20,10 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   var socketID = req.body.socketId;
   console.log('message from ' + socketID);
-  var content = req.body.message;
+  var content = 'oh hey, what do you think?';
   var room = req.body.room;
   console.log('sending ' + content);
-  pusher.trigger(room, 'my_event', {'message': content});
+  pusher.trigger(room, 'my_event', {'message': content}, socketID);
 });
 
 module.exports = router;

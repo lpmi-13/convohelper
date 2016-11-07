@@ -1,39 +1,29 @@
-<!DOCTYPE HTML>
-<head>
+doctype
+html
+  head
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript") 
+    script(src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript")   
+    script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript")   
+    script(src="//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.3.0/bootbox.min.js" type="text/javascript")
+    script(src="javascripts/pusherEvents.js" type="text/javascript")
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript" ></script> 
-<script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript" type="text/javascript" ></script>    
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript" ></script>   
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.3.0/bootbox.min.js" type="text/javascript" ></script>
-<script src="javascripts/pusherEvents.js" type="text/javascript"></script>
+    link(rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+    style(type="text/css")
+    link(rel="stylesheet" href="/stylesheets/custom.css") 
 
-
-<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
-<style = "text/css">
-<!--        
-.messages_display {height: 300px; overflow: auto;}      
-.messages_display .message_item {padding: 0; margin: 0; }       
-.bg-danger {padding: 10px;} --> 
-</style>
-</head>
-<body>
-
-<div class="container">       
-<div class="col-md-6 chat_box">                       
-<div class="form-control messages_display"></div>         
-<br />                      
-<div class="form-group">              
-<label>Name</label>             
-<input type="text" class="input_name form-control" placeholder="Name" />          
-</div>                      
-<div class="form-group">              
-<label>Message</label>
-<textarea class="input_message form-control" placeholder="Message"></textarea>          
-</div>                      
-<div class="form-group input_send_holder">                
-<input type="submit" value="Send" class="btn btn-primary input_send" />           
-</div>                  
-</div>  
-</div>
-</body>
-</html>
+  body
+    div(class="container")  
+      div(class="row")
+        div(class="col-xs-12")     
+          h1(class="convo") Convohelper
+      div(class="row")
+        div(class="col-xs-12")
+          div(class="messages_display")
+      div(class="row contribute")
+        div(class="col-xs-12")
+          div(class="buttons")
+            input(type="submit" value="I wanna say something" class="btn btn-primary input_send")
+      div(class="row")
+        div(class="input_send_holder")
+      footer
+        p powered by Pusher
