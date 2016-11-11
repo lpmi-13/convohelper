@@ -12,8 +12,10 @@ var pusher = new Pusher({
 });
 
 router.get('/', function(req, res, next) {
-  console.log('got a get request');
-  pusher.trigger('test_channel', 'my_event', {'message': 'responding to get request'});
+  var room = req.query.room;
+  console.log(room);
+  console.log('signing into room: ' + room);
+  res.render('channel', { title : 'ConvoHelper'});
 });
 
 //respond to incoming pusher events

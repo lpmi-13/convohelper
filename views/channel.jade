@@ -4,7 +4,8 @@ html
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript") 
     script(src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript")   
     script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript")   
-    script(src="javascripts/indexEvents.js" type="text/javascript")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.3.0/bootbox.min.js" type="text/javascript")
+    script(src="javascripts/pusherEvents.js" type="text/javascript")
 
     link(rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
     style(type="text/css")
@@ -13,14 +14,16 @@ html
   body
     div(class="container")  
       div(class="row")
-        div(class="col-xs-12 convo")     
-          h1 Convohelper
-          h3 choose a group or start a new one
+        div(class="col-xs-12")     
+          h1(class="convo") Convohelper
       div(class="row")
         div(class="col-xs-12")
+          div(class="messages_display")
+      div(class="row contribute")
+        div(class="col-xs-12")
           div(class="buttons")
-            input(type="submit" value="start new group" class="btn btn-primary btn-create")
+            input(type="submit" value="I wanna say something" class="btn btn-primary input_send")
       div(class="row")
-        div(class="col-xs-12 group_buttons")
+        div(class="input_send_holder")
       footer
         p powered by Pusher

@@ -1,13 +1,13 @@
 $(function() {
 
-	var chatRoomNamesArray = ['DeepPink', 'LightSalmon', 'Crimson', 'Red', 'DarkOrange', 'DarkKhaki',
-		'RosyBrown', 'Sienna', 'Maroon', 'LawnGreen', 'MediumAquaMarin', 'DarkGreen', 'DarkTurquoise',
-		'LightSteelBlue', 'RoyalBlue', 'Thistle', 'Magenta', 'Indigo', 'DimGray'];
-
-	var randomNumber = Math.floor(Math.random() * chatRoomNamesArray.length);
-	console.log('randomNumber = ' + randomNumber);
-
-	var chatRoomName = chatRoomNamesArray[randomNumber];
+	$.urlParam = function(param) {
+		var results = new RegExp('[\?&]' + param + '=([^&#]*)').exec(window.location.href);
+		if (results == null){
+			return null;
+		} else {
+			return results[1] || 0;
+		}
+	}
 
 	var pusher = new Pusher('c6580e938510ff65438a', {
 		cluster: 'eu',
@@ -15,6 +15,8 @@ $(function() {
 	});
 
 	var socketId;
+	var chatRoomName = $.urlParam('room');
+	console.log(chatRoomName);
 
 	pusher.connection.bind('connected', function() {
 		socketId = pusher.connection.socket_id;
@@ -23,6 +25,7 @@ $(function() {
 
 	var channel = pusher.subscribe(chatRoomName);
 	channel.bind('my_event', function(data) {
+		console.log('subscribed to ' + chatRoomName);
 		//add new message to the container
 		$('.messages_display').append('<p class="message_item">' + data.message + '</p>');
 	});
