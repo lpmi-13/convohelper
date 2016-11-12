@@ -27,7 +27,8 @@ $(function() {
 	channel.bind('my_event', function(data) {
 		console.log('subscribed to ' + chatRoomName);
 		//add new message to the container
-		$('.messages_display').append('<p class="message_item">' + data.message + '</p>');
+		// $('.messages_display').append('<p class="message_item">' + data.message + '</p>');
+		bootbox.alert('<h2>' + data.message + '</h2>');
 	});
 
 	function ajaxCall(ajax_url, ajax_data) {
@@ -55,14 +56,15 @@ $(function() {
 		});
 	}
 
-	//send message
-	$('body').on('click', '.input_send', function(e) {
+	//send message for contributing
+	$('.contribute').on('click', '.input_send', function(e) {
 		e.preventDefault();
 
-		var room = chatRoomName;
+		var number = Math.floor(Math.random() * sentences.requestFloor.length);
+		var floorBid = sentences.requestFloor[number];
+		bootbox.alert('<h2>' + floorBid + '</h2>');
 
-		bootbox.alert('<br/><p class="bg-danger">I\'d like to say something</p>');
-		
+		var room = chatRoomName;		
 		var chat_message = {
 			room: room,
 			socketId : socketId,
@@ -71,7 +73,28 @@ $(function() {
 		//send to server at route "/messages"
 		ajaxCall('http://localhost:3000/messages', chat_message);
 
-		$('.input_send_holder').html('<img src="images/loader.gif"/>');
+		// $('.input_send_holder').html('<img src="images/loader.gif"/>');
+		
+	});
+
+	//prompt self to agree
+	$('.agree').on('click', '.input_send', function(e) {
+		e.preventDefault();
+
+		var number = Math.floor(Math.random() * sentences.agree.length);
+		var agreement = sentences.agree[number];
+
+		bootbox.alert('<h2>' + agreement + '</h2>');
+	});
+
+	//prompt self to disagree
+	$('.disagree').on('click', '.input_send', function(e) {
+		e.preventDefault();
+
+		var number = Math.floor(Math.random() * sentences.disagree.length);
+		var disagreement = sentences.disagree[number];
+
+		bootbox.alert('<h2>' + disagreement + '</h2>');
 		
 	});
 
