@@ -15,12 +15,20 @@ html
       div(class="row")
         div(class="col-xs-12 convo")     
           h1 Convohelper
-          h3 choose a group or start a new one
+          h3 enter a Group PIN to join or generate a new one
+      div(class="row")
+        div(class="col-xs-12")
+          div(class="input-group input-group-lg entry")
+            input(type="text" placeholder="enter group PIN" class="form-control enter-pin")
       div(class="row")
         div(class="col-xs-12")
           div(class="buttons")
-            input(type="submit" value="start new group" class="btn btn-primary btn-create")
+            input(type="submit" value="join group room" class="btn btn-primary btn-join")
       div(class="row")
-        div(class="col-xs-12 group_buttons")
+        div(class="col-xs-12")
+          div(class="buttons")
+            input(type="submit" value="generate new group PIN" class="btn btn-primary btn-create")
+      div(class="row")
+        div(class="col-xs-12 group_pin")
       footer
         p powered by Pusher

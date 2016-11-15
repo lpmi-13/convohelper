@@ -23,7 +23,7 @@ $(function() {
 	var openChatRooms = [];
 
 	$('.btn-create').on('click', function() {
-		generateRoom();
+		generateRoomCode();
 	});
 
 	function joinChatRoom(chatRoomName) {
@@ -31,24 +31,10 @@ $(function() {
 		window.location.href = url;
 	}
 
-	function generateRoom() {
-		if (openChatRooms.length == chatRoomNamesArray.length) {
-			return false;
-		}
+	function generateRoomCode() {
+		var newCode = Math.floor(Math.random() * 10000);
 		
-		var randomNumber = (function() {
-			var number = Math.floor(Math.random() * chatRoomNamesArray.length);
-			while (openChatRooms.indexOf(number) > -1) {
-				number = Math.floor(Math.random() * chatRoomNamesArray.length);
-			}
-			return number;
-		})();
-
-		var chatRoomName = chatRoomNamesArray[randomNumber];
-		openChatRooms.push(randomNumber);
-		
-		
-		$('.group_buttons').append('<input type="submit" value="join ' + chatRoomName + '" id="' + chatRoomName + '" class="btn btn-primary btn-join">');
+		$('.group_pin').html('<p>' + newCode + '</p>');
 		$('#' + chatRoomName).on('click', function() {
 			console.log('joining' + chatRoomName);
 			joinChatRoom(chatRoomName);

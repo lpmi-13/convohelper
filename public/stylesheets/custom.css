@@ -15,9 +15,17 @@ html, body {
 	background: #F8D970;
 }
 
-.buttons, .convo {
+.buttons, .convo, .group_pin, .entry {
 	text-align: center;
 	margin: 1em 0 1em 0;
+}
+
+.entry{
+	margin: 0 auto;
+}
+
+.enter-pin {
+	text-align: center;
 }
 
 .input_send {
@@ -25,8 +33,12 @@ html, body {
 	font-size: 4rem;
 }
 
-.group_buttons .btn-join{
+.btn-join{
 	margin: 1em;
+}
+
+.group_pin {
+	font-size: 4em;
 }
 
 footer {
