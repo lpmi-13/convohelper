@@ -19,7 +19,7 @@ $(function() {
 	});
 
 	function joinChatRoom(chatRoomName) {
-		var url = 'http://localhost:3000/messages?room=' + chatRoomName;
+		var url = '/messages?room=' + chatRoomName;
 		window.location.href = url;
 	}
 
