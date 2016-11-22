@@ -71,7 +71,7 @@ $(function() {
 		}
 
 		//send to server at route "/messages"
-		ajaxCall('http://localhost:3000/messages', chat_message);
+		ajaxCall('/messages', chat_message);
 
 		// $('.input_send_holder').html('<img src="images/loader.gif"/>');
 		
