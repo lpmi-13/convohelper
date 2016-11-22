@@ -1,29 +1,21 @@
 $(function() {
 
-	/*
-	instantiate a new pusher object and bind it to the index channel on the homepage
-	currently the best way I could think of to make sure all the buttons that get generated
-	are the same across all screens
-	*/
-	// var pusher = new Pusher('c6580e938510ff65438a', {
-	// 	cluster: 'eu',
-	// 	encrypted: true 
-	// });
 
-	// var channel = pusher.subscribe('convoHelperIndex');
-	// channel.bind('my_event', function(data) {
-	// 	console.log('subscribed to convoHelperIndex');
-	// 	//display buttons as generated 
-	// });
-
-	var chatRoomNamesArray = ['DeepPink', 'LightSalmon', 'Crimson', 'Red', 'DarkOrange', 'DarkKhaki',
-		'RosyBrown', 'Sienna', 'Maroon', 'LawnGreen', 'MediumAquaMarine', 'DarkGreen', 'DarkTurquoise',
-		'LightSteelBlue', 'RoyalBlue', 'Thistle', 'Magenta', 'Indigo', 'DimGray'];
-
-	var openChatRooms = [];
 
 	$('.btn-create').on('click', function() {
-		generateRoomCode();
+		var numberOfGroups = $('.buttons option:selected').val();
+		generateRoomCode(numberOfGroups);
+	});
+
+	$('.btn-join').on('click', function() {
+		var chatRoomName = $('.enter-pin').val();
+		if (chatRoomName.length > 4) {
+			console.log('joining' + chatRoomName);
+			joinChatRoom(chatRoomName);
+		} else {
+			//send some alert to enter a room pin
+			console.log('computer says no');
+		}
 	});
 
 	function joinChatRoom(chatRoomName) {
@@ -31,14 +23,36 @@ $(function() {
 		window.location.href = url;
 	}
 
-	function generateRoomCode() {
+	function FYShuffle(array) {
+		var currentIndex = array.length, temporaryValue, randomIndex;
+
+		while (0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
+		return array;
+	}
+
+	function generateRoomCode(numberOfGroups) {
+		$('.group_pin').empty();
+
 		var newCode = Math.floor(Math.random() * 10000);
-		
-		$('.group_pin').html('<p>' + newCode + '</p>');
-		$('#' + chatRoomName).on('click', function() {
-			console.log('joining' + chatRoomName);
-			joinChatRoom(chatRoomName);
-		});
+		var chatRoomNamesArray = ['crimson', 'orange', 'maroon', 'green', 'blue', 'gray'];
+		var openChatRooms = [];
+
+		FYShuffle(chatRoomNamesArray);	
+
+		for (i = 0; i < numberOfGroups; i++) {
+			openChatRooms.push(chatRoomNamesArray[i]);
+		}
+
+		for (i = 0; i < numberOfGroups; i++) {
+			$('.group_pin').append('<p>' + newCode + '-' + openChatRooms[i] + '</p>');		
+		}
 
 	}
 

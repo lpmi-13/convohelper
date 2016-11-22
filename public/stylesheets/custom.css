@@ -15,12 +15,14 @@ html, body {
 	background: #F8D970;
 }
 
-.buttons, .convo, .group_pin, .entry {
+.buttons, .convo {
 	text-align: center;
 	margin: 1em 0 1em 0;
 }
 
-.entry{
+
+.entry, .group_pin {
+	text-align: center;
 	margin: 0 auto;
 }
 
