@@ -4,10 +4,14 @@ var Pusher = require('pusher');
 var configVars = require('./envVars');
 var give = require('./giveFloor');
 
+var app_id = process.env.APP_ID || configVars.app_id;
+var app_key = process.env.APP_KEY || configVars.app_key;
+var app_secret = process.env.APP_SECRET || configVars.app_secret;
+
 var pusher = new Pusher({
-  appId: configVars.app_id,
-  key: configVars.app_key,
-  secret: configVars.app_secret,
+  appId: app_id,
+  key: app_key,
+  secret: app_secret,
   cluster: 'eu',
   encrypted: true
 });
