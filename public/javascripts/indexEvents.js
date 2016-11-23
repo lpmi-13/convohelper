@@ -1,9 +1,7 @@
 $(function() {
 
-
-
 	$('.btn-create').on('click', function() {
-		var numberOfGroups = $('.buttons option:selected').val();
+		var numberOfGroups = $('.bottom-buttons option:selected').val();
 		generateRoomCode(numberOfGroups);
 	});
 
@@ -40,7 +38,7 @@ $(function() {
 	function generateRoomCode(numberOfGroups) {
 		$('.group_pin').empty();
 
-		var newCode = Math.floor(Math.random() * 10000);
+		var newCode = Math.floor(Math.random() * 9999);
 		var chatRoomNamesArray = ['crimson', 'orange', 'maroon', 'green', 'blue', 'gray'];
 		var openChatRooms = [];
 
@@ -51,7 +49,7 @@ $(function() {
 		}
 
 		for (i = 0; i < numberOfGroups; i++) {
-			$('.group_pin').append('<p>' + newCode + '-' + openChatRooms[i] + '</p>');		
+			$('.group_pin').append('<div class="pin-code">' + newCode + '-' + openChatRooms[i] + '</div>');		
 		}
 
 	}

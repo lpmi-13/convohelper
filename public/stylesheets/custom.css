@@ -1,53 +1,140 @@
-.messages_display {
-	height: 200px; overflow: auto;
-}      
+html, body {
+	height: 100%;
+	background: #F8D970;
+	font-family: Georgia;
+}
 
 .messages_display .message_item {
 	padding: 0; margin: 0;
 }       
 
-.bg-danger {
-	padding: 10px;
-}
-
-html, body {
-	height: 100%;
-	background: #F8D970;
-}
-
-.buttons, .convo {
-	text-align: center;
-	margin: 1em 0 1em 0;
-}
-
-
-.entry, .group_pin {
-	text-align: center;
-	margin: 0 auto;
-}
-
 .enter-pin {
 	text-align: center;
 }
 
-.input_send {
-	width: 100%;
-	font-size: 4rem;
+@media(max-width:767px) {
+	
+	.entry{
+		text-align: center;
+		margin: 0 auto;
+		max-width: 85%;
+	}
+	
+	.buttons, .convo {
+		text-align: center;
+		margin: 1em 0 1em 0;
+	}
+	
+	.messages_display {
+		height: 100px; overflow: auto;
+	}      
+
+	.bg-danger {
+		padding: 5px;
+	}
+	
+	.input_send {
+		width: 100%;
+		font-size: 2rem;
+	}
+
+	.btn-join{
+		margin: 1em;
+		min-width: 85%;
+	}
+
+	.group_pin {
+		font-size: 2.5rem;
+		columns: 100px 2;
+		white-space: nowrap;
+	}
+
+	.pin-code {
+		margin:0 1em 0 1em;
+	}
+	
+	footer {
+		text-align: center;
+		position: absolute;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    padding: 1rem;
+	    font-size: 3rem;
+	}
 }
 
-.btn-join{
-	margin: 1em;
+
+@media(min-width:768px) {
+	
+	.entry{
+		text-align: center;
+		margin: 0 auto;
+		max-width: 50%;
+	}
+	
+	.buttons, .convo {
+		text-align: center;
+		margin: 1em 0 1em 0;
+	}
+	
+	.bottom-buttons {
+		margin: 0;
+		padding: 0;
+	}
+
+	.messages_display {
+		height: 200px; overflow: auto;
+	}      
+
+	.bg-danger {
+		padding: 10px;
+	}
+	
+	.input_send {
+		width: 100%;
+		font-size: 4rem;
+	}
+
+	.btn-join {
+		margin: 1em;
+		min-width: 50%;
+		font-size: 2rem;
+	}
+
+	.btn-create {
+		min-width: 50%;
+		font-size: 2rem;
+	}
+
+	.group-number {
+		min-height: 2em;
+		font-size: 2rem;
+		text-align: center;
+	}
+
+	.group_pin {
+		font-size: 3rem;
+		columns: 2;
+		white-space: nowrap;
+		padding: 0;
+	}
+
+	.pin-code {
+		
+	}
+	
+	footer {
+		text-align: center;
+		position: absolute;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    padding: 1rem;
+	    font-size: 3rem;
+	}
 }
 
-.group_pin {
-	font-size: 4em;
-}
 
-footer {
-	text-align: center;
-	position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-}
+
+
