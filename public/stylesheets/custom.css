@@ -52,6 +52,10 @@ html, body {
 	.pin-code {
 		margin:0 1em 0 1em;
 	}
+
+	.button-holder {
+		padding-top: 100px;
+	}
 	
 	footer {
 		text-align: center;
@@ -67,6 +71,10 @@ html, body {
 
 @media(min-width:768px) {
 	
+	.enter-pin {
+	min-height: 3em;
+	}
+
 	.entry{
 		text-align: center;
 		margin: 0 auto;
@@ -92,7 +100,7 @@ html, body {
 	}
 	
 	.input_send {
-		width: 100%;
+		width: 60%;
 		font-size: 4rem;
 	}
 
