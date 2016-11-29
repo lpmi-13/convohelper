@@ -34,7 +34,7 @@ html, body {
 	}
 	
 	.input_send {
-		width: 100%;
+		width: 85%;
 		font-size: 2rem;
 	}
 
@@ -45,12 +45,14 @@ html, body {
 
 	.group_pin {
 		font-size: 2.5rem;
-		columns: 100px 2;
-		white-space: nowrap;
+		text-align: center;
+		text-decoration: none;
 	}
 
 	.pin-code {
 		margin:0 1em 0 1em;
+		width: 100%;
+		text-align: center;
 	}
 
 	.button-holder {
