@@ -15,37 +15,29 @@ html
     div(class="container")  
       div(class="row")
         div(class="col-xs-12 convo")     
-          h1 Convohelper
-          h3 
+          h3 Convohelper
+          h5 
             | enter a Group PIN to join
             br
             | or generate a new one
       div(class="row")
         div(class="col-xs-12")
           div(class="input-group input-group-lg entry")
-            input(type="text" placeholder="enter group PIN" id="pin-input" class="form-control-lg enter-pin")
+            input(type="text" id="pin-input" class="form-control enter-pin" placeholder="enter PIN")
+            span(class="input-group-btn")
+              <button class="btn btn-primary btn-join" type="button">Join</button> 
+      div(class="row pin-generator")
+        div(class="col-lg-6")
+          div(class="input-group")
+            input(type="button" class="form-control btn-primary" value="generate new PIN for")
+            div(class="input-group-btn")
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#</button>
+              div(class="dropdown-menu dropdown-menu-right")
+                <a class="dropdown-item" id="3" href="#">3 groups</a>
+                <a class="dropdown-item" id="4" href="#">4 groups</a>
+                <a class="dropdown-item" id="5" href="#">5 groups</a>
+                <a class="dropdown-item" id="6" href="#">6 groups</a>
       div(class="row")
-        div(class="col-xs-12")
-          div(class="buttons")
-            input(type="submit" value="join group room" class="btn btn-primary btn-join")
-      div(class="row")
-        div(class="col-xs-2")
-        div(class="col-xs-8")
-          div(class="row")
-            div(class="col-xs-6")
-              div(class="bottom-buttons")
-                input(type="submit" value="new PIN" class="btn btn-primary btn-create")
-            div(class="col-xs-6")
-              div(class="bottom-buttons")
-                select(class="form-control group-number")
-                  option(value="3") for 3 groups
-                  option(value="4") for 4 groups
-                  option(value="5") for 5 groups
-                  option(value="6") for 6 groups
-        div(class="col-xs-2")
-      div(class="row")
-        div(class="col-xs-2")
-        div(class="col-xs-8 group_pin")
-        div(class="col-xs-2")
+        div(class="col-xs-12 group_pin")
       footer
         p powered by <a href="https://pusher.com/">Pusher</a>

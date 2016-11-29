@@ -1,7 +1,7 @@
 $(function() {
 
-	$('.btn-create').on('click', function() {
-		var numberOfGroups = $('.bottom-buttons option:selected').val();
+	$('.dropdown-menu').on('click','a', function() {
+		var numberOfGroups = $(this).attr('id');
 		generateRoomCode(numberOfGroups);
 	});
 

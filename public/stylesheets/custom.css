@@ -20,6 +20,10 @@
 		margin: 0 auto;
 		max-width: 85%;
 	}
+
+	.pin-generator {
+		margin-top: 1em;
+	}
 	
 	.buttons, .convo {
 		text-align: center;
@@ -39,20 +43,15 @@
 		font-size: 2rem;
 	}
 
-	.btn-join{
-		margin: 1em;
-		min-width: 65%;
-	}
-
 	.group_pin {
-		padding-top: 2em;
+		padding-top: 1em;
+		columns: 2;
 	}
 
 	.pin-code {
 		text-align: center;
 		width: 100%;
-		font-size: 2.5rem;
-		/*text-align: center;*/
+		font-size: 1.5rem;
 	}
 
 	.button-holder {
@@ -65,8 +64,8 @@
 	    right: 0;
 	    bottom: 0;
 	    left: 0;
-	    padding: 1rem;
-	    font-size: 3.5rem;
+	    /*padding: 1rem;*/
+	    font-size: 1.5rem;
 	}
 }
 
@@ -75,7 +74,7 @@
 	
 	html, body {
 	height: 100%;
-	background: #FFFFFF;
+	background: #F8D970;
 	font-family: Georgia;
 	}
 
@@ -110,12 +109,6 @@
 	.input_send {
 		width: 60%;
 		font-size: 4rem;
-	}
-
-	.btn-join {
-		margin: 1em;
-		min-width: 50%;
-		font-size: 2rem;
 	}
 
 	.btn-create {
