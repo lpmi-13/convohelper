@@ -9,8 +9,8 @@
 
 @media only screen and (max-width:767px) {
 	
-	html, body {
-	height: 100%;
+	body {
+	/*height: 100%;*/
 	background: #F8D970;
 	font-family: Georgia;
 	}
