@@ -3,41 +3,35 @@ html
   head
     title Convohelper
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript") 
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript")
     script(src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript")   
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" type="text/javascript")
     script(src="javascripts/indexEvents.js" type="text/javascript")
 
-    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css")
     link(rel="stylesheet" href="/stylesheets/custom.css") 
 
   body
-    div(class="container")  
-      div(class="row")
-        div(class="col-xs-12 convo")     
-          h3 Convohelper
-          h5 
-            | enter a Group PIN to join
-            br
-            | or generate a new one
-      div(class="row")
-        div(class="col-xs-12")
-          div(class="input-group input-group-lg entry")
-            input(type="text" id="pin-input" class="form-control enter-pin" placeholder="enter PIN")
-            span(class="input-group-btn")
-              <button class="btn btn-primary btn-join" type="button">Join</button> 
-      div(class="row pin-generator")
-        div(class="col-lg-6")
-          div(class="input-group")
-            input(type="button" class="form-control btn-secondary" value="generate PIN")
-            div(class="input-group-btn")
-              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">for how many groups</button>
-              div(class="dropdown-menu dropdown-menu-right")
-                <a class="dropdown-item" id="3" href="#">3 groups</a>
-                <a class="dropdown-item" id="4" href="#">4 groups</a>
-                <a class="dropdown-item" id="5" href="#">5 groups</a>
-                <a class="dropdown-item" id="6" href="#">6 groups</a>
-      div(class="row")
-        div(class="col-xs-12 group_pin")
+    div(class="flex-container")
+      div(class="header")
+        p(class="logo") Convohelper
+        img(src="images/home-button.png" class="home-button")      
+      div(class="info")
+        h5 
+          | enter a Group PIN to join
+          br
+          | or generate a new one
+      div(class="input-group entry")
+        input(type="text" id="pin-input" class="form-control enter-pin" placeholder="enter PIN")
+        span(class="input-group-btn")
+          <button class="btn-join" type="button">Join</button> 
+      div(class="input-group generate-button")
+        div(class="input-group-btn")
+          h2 generate PIN for how many groups?
+          select(id="selection")
+            option(id="none") #
+            option(value="3") 3 groups
+            option(value="4") 4 groups
+            option(value="5") 5 groups
+            option(value="6") 6 groups
+      div(class="group_pin")
       footer
         p powered by <a href="https://pusher.com/">Pusher</a>

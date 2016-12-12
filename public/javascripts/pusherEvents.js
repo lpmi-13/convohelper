@@ -1,5 +1,11 @@
 $(function() {
 
+	$('.home-button').on('click', function() {
+		window.location.href='http://localhost:3000';
+	});
+
+	$('#modal1').modal();
+
 	$.urlParam = function(param) {
 		var results = new RegExp('[\?&]' + param + '=([^&#]*)').exec(window.location.href);
 		if (results == null){
@@ -27,8 +33,8 @@ $(function() {
 	channel.bind('my_event', function(data) {
 		console.log('subscribed to ' + chatRoomName);
 		//add new message to the container
-		// $('.messages_display').append('<p class="message_item">' + data.message + '</p>');
-		bootbox.alert('<h2>' + data.message + '</h2>');
+		$('#prompt').text('Somebody else wants to talk');
+		$('#text-to-say').text(data.message);
 	});
 
 	function ajaxCall(ajax_url, ajax_data) {
@@ -44,25 +50,14 @@ $(function() {
 		});
 	}
 
-	//trigger for enter key 
-	$.fn.enterKey = function(fnc) {
-		return this.each(function() {
-			$(this).keypress(function(ev) {
-				var keycode = (ev.keyCode ? ev.keyCode : ev.which);
-				if (keycode == '13') {
-					fnc.call(this, ev);
-				}
-			});
-		});
-	}
-
 	//send message for contributing
-	$('.contribute').on('click', '.input_send', function(e) {
+	$('.contribute').on('click', function(e) {
 		e.preventDefault();
 
 		var number = Math.floor(Math.random() * sentences.requestFloor.length);
 		var floorBid = sentences.requestFloor[number];
-		bootbox.alert('<h2>' + floorBid + '</h2>');
+
+		showModal(floorBid);
 
 		var room = chatRoomName;		
 		var chat_message = {
@@ -72,36 +67,68 @@ $(function() {
 
 		//send to server at route "/messages"
 		ajaxCall('/messages', chat_message);
-
-		// $('.input_send_holder').html('<img src="images/loader.gif"/>');
 		
 	});
 
 	//prompt self to agree
-	$('.agree').on('click', '.input_send', function(e) {
+	$('.agree').on('click', function(e) {
 		e.preventDefault();
 
 		var number = Math.floor(Math.random() * sentences.agree.length);
 		var agreement = sentences.agree[number];
 
-		bootbox.alert('<h2>' + agreement + '</h2>');
+		showModal(agreement);
 	});
 
 	//prompt self to disagree
-	$('.disagree').on('click', '.input_send', function(e) {
+	$('.disagree').on('click', function(e) {
 		e.preventDefault();
 
 		var number = Math.floor(Math.random() * sentences.disagree.length);
 		var disagreement = sentences.disagree[number];
 
-		bootbox.alert('<h2>' + disagreement + '</h2>');
-		
+		showModal(disagreement);		
 	});
 
-	//send message on enter key click
-	$('body').enterKey(function(e) {
+	//prompt self to confirm
+	$('.confirm').on('click', function(e) {
 		e.preventDefault();
-		$('.input_send').click();
+
+		var number = Math.floor(Math.random() * sentences.confirmation.length);
+		var confirm = sentences.confirmation[number];
+
+		showModal(confirm);		
 	});
+
+	//prompt self to clarify
+	$('.clarify').on('click', function(e) {
+		e.preventDefault();
+
+		var number = Math.floor(Math.random() * sentences.clarification.length);
+		var clarify = sentences.clarification[number];
+
+		showModal(clarify);
+
+	});
+
+	//prompt self to review
+	$('.review').on('click', function(e) {
+		e.preventDefault();
+
+		console.log('pressed review');
+
+		var number = Math.floor(Math.random() * sentences.reviewing.length);
+		var review = sentences.reviewing[number];
+
+		showModal(review);		
+	});
+
+	function showModal(sentence) {
+		$('#prompt').text('');
+		$('#text-to-say').text('');
+		$('#prompt').text('Say this:');
+		$('#text-to-say').text('"' + sentence + '"');
+		$('#modal1').modal('open');
+	}
 
 });

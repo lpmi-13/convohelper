@@ -1,7 +1,8 @@
 $(function() {
 
-	$('.dropdown-menu').on('click','a', function() {
-		var numberOfGroups = $(this).attr('id');
+	$('#selection').on('click', function() {
+		$('#none').attr('disabled', true);
+		var numberOfGroups = $('#selection').find(':selected').val();
 		generateRoomCode(numberOfGroups);
 	});
 
@@ -49,7 +50,7 @@ $(function() {
 		}
 
 		for (i = 0; i < numberOfGroups; i++) {
-			$('.group_pin').append('<div class="pin-code">' + newCode + '-' + openChatRooms[i] + '</div>');		
+			$('.group_pin').append('<p class="pin-code">' + newCode + '-' + openChatRooms[i] + '</p>');		
 		}
 
 	}

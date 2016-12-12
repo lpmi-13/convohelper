@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Pusher = require('pusher');
-//var configVars = require('./envVars');
+var configVars = require('./envVars');
 var give = require('./giveFloor');
 
 var app_id = process.env.APP_ID || configVars.app_id;
