@@ -1,7 +1,7 @@
 $(function() {
 
 	$('.home-button').on('click', function() {
-		window.location.href='http://localhost:3000';
+		window.location.href='http:convohelper.herokuapp.com';
 	});
 
 	$('#modal1').modal();
