@@ -56,7 +56,7 @@ $(function() {
 		var number = Math.floor(Math.random() * sentences.requestFloor.length);
 		var floorBid = sentences.requestFloor[number];
 
-		showModal(floorBid);
+		showModal('Say this:', floorBid);
 
 		var room = chatRoomName;		
 		var chat_message = {
