@@ -7,15 +7,10 @@ html, body {
 	background: #000000;
 	color: #F8C170;
 	top: 0;
-    /*border-width: 0 0 1px;*/
-    /*border-top-width: 0px;*/
-    /*border-right-width: 0px;*/
-    /*border-bottom-width: 1px;*/
-    /*border-left-width: 0px;*/
     position: fixed;
     right: 0;
     left: 0;
-    min-height: 50px;
+    /*min-height: 50px;*/
     margin-bottom: 20px;
     display: flex;
     display: -webkit-flex;
@@ -132,7 +127,7 @@ footer {
 	}
 
 	.header p {
-		margin-left: 2em;
+		/*margin-left: 2em;*/
 		font-size: 1.2rem;
 	}
 
