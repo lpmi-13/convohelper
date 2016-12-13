@@ -33,12 +33,7 @@ $(function() {
 	channel.bind('my_event', function(data) {
 		console.log('subscribed to ' + chatRoomName);
 		//add new message to the container
-		console.log(data.message);
-		$('#prompt').text('');
-		$('#text-to-say').text('');
-		$('#prompt').text('Somebody else wants to talk');
-		$('#text-to-say').text('"' + data.message + '"');
-		$('modal1').modal('open');
+		showModal('somebody else wants to say something', data.message);
 	});
 
 	function ajaxCall(ajax_url, ajax_data) {
@@ -81,7 +76,7 @@ $(function() {
 		var number = Math.floor(Math.random() * sentences.agree.length);
 		var agreement = sentences.agree[number];
 
-		showModal(agreement);
+		showModal('Say this:', agreement);
 	});
 
 	//prompt self to disagree
@@ -91,7 +86,7 @@ $(function() {
 		var number = Math.floor(Math.random() * sentences.disagree.length);
 		var disagreement = sentences.disagree[number];
 
-		showModal(disagreement);		
+		showModal('Say this:', disagreement);		
 	});
 
 	//prompt self to confirm
@@ -101,7 +96,7 @@ $(function() {
 		var number = Math.floor(Math.random() * sentences.confirmation.length);
 		var confirm = sentences.confirmation[number];
 
-		showModal(confirm);		
+		showModal('Say this:', confirm);		
 	});
 
 	//prompt self to clarify
@@ -111,7 +106,7 @@ $(function() {
 		var number = Math.floor(Math.random() * sentences.clarification.length);
 		var clarify = sentences.clarification[number];
 
-		showModal(clarify);
+		showModal('Say this:', clarify);
 
 	});
 
@@ -124,13 +119,13 @@ $(function() {
 		var number = Math.floor(Math.random() * sentences.reviewing.length);
 		var review = sentences.reviewing[number];
 
-		showModal(review);		
+		showModal('Say this:', review);		
 	});
 
-	function showModal(sentence) {
+	function showModal(prompt, sentence) {
 		$('#prompt').text('');
 		$('#text-to-say').text('');
-		$('#prompt').text('Say this:');
+		$('#prompt').text(prompt);
 		$('#text-to-say').text('"' + sentence + '"');
 		$('#modal1').modal('open');
 	}
