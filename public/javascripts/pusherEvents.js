@@ -34,7 +34,8 @@ $(function() {
 		console.log('subscribed to ' + chatRoomName);
 		//add new message to the container
 		$('#prompt').text('Somebody else wants to talk');
-		$('#text-to-say').text(data.message);
+		$('#text-to-say').text('"' + data.message + '"');
+		$('modal1').modal('open');
 	});
 
 	function ajaxCall(ajax_url, ajax_data) {
