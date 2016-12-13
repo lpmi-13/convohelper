@@ -33,6 +33,9 @@ $(function() {
 	channel.bind('my_event', function(data) {
 		console.log('subscribed to ' + chatRoomName);
 		//add new message to the container
+		
+		$('#prompt').text('');
+		$('#text-to-say').text('');
 		$('#prompt').text('Somebody else wants to talk');
 		$('#text-to-say').text('"' + data.message + '"');
 		$('modal1').modal('open');
