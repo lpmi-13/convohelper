@@ -10,8 +10,6 @@ html, body {
     position: fixed;
     right: 0;
     left: 0;
-    /*min-height: 50px;*/
-    margin-bottom: 20px;
     display: flex;
     display: -webkit-flex;
     justify-content: space-around;
@@ -95,15 +93,16 @@ html, body {
 }
 
 .group_pin {
-	min-height: 18vh;
 	max-width: 95%;
 	flex-wrap: wrap;
 	order: 4;
 	display: flex;
 	display: -webkit-flex;
-	flex-direction: row;
-	-webkit-direction: row;
-	justify-content: center;
+	flex-direction: column;
+	-webkit-direction: column;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
 }
 
 .buttons {
@@ -126,8 +125,11 @@ footer {
 		justify-content: center;
 	}
 
+	.header {
+		max-height: 2em;
+	}
+
 	.header p {
-		/*margin-left: 2em;*/
 		font-size: 1.2rem;
 	}
 
@@ -137,12 +139,20 @@ footer {
 	}
 
 	.info {
-		margin-top: 2.1em;
+		margin-top: 1em;
 		font-size: 1.2rem;
 	}
 
+	.info h5 {
+		margin: 0.5em;
+	}
+
+	.generate-button h2 {
+		margin: 0.2em 0 0.5em 0;
+	}
+
 	.group_pin {
-		min-height: 18em;
+		min-height: 8em;
 	}
 
 	#selection, .btn-join, #pin-input, .btn-talk {
@@ -150,8 +160,9 @@ footer {
 	}
 
 	.pin-code {
-		margin: 0 0.5em 0 0.5em;
-		font-size: 1.4rem;
+		margin: 0.5em;
+		/*max-height: 2em;*/
+		font-size: 1.2rem;
 	}
 
 	.buttons {
@@ -182,6 +193,11 @@ footer {
 		font-size: 1.5rem;
 	}
 
+	footer p {
+		margin-top: 0.75em;
+		padding: 0;
+	}
+
 }
 
 
@@ -190,7 +206,12 @@ footer {
 
 	.info {
 		font-size: 3rem;
+		margin-top: 1em;
 		justify-content: center;
+	}
+
+	.info h5 {
+		margin: 0.5em;
 	}
 
 	.home-button {
@@ -198,16 +219,20 @@ footer {
 		height: 5vh;
 	}
 
+	.header {
+		max-height: 4em;
+	}
+
 	.header p {
 		font-size: 2rem;
 	}
 
-	.info {
-		margin-top: 1em;
-	}
-
 	#selection, .btn-join, #pin-input, .btn-talk {
 		font-size: 2rem;
+	}
+
+	.group_pin {
+		padding: 1em;
 	}
 
 	.pin-code {
