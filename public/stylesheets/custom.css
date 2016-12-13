@@ -232,6 +232,7 @@ footer {
 
 	.group_pin {
 		padding: 1em;
+		min-height: 3.5em;
 	}
 
 	.pin-code {
@@ -240,7 +241,7 @@ footer {
 	}
 
 	.buttons {
-		margin-top: 10em;
+		margin-top: 6em;
 	}
 
 	.modal {
