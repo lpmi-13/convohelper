@@ -102,7 +102,6 @@ html, body {
 .group_pin {
 	min-height: 18vh;
 	max-width: 95%;
-	margin-top: 1.5em;
 	flex-wrap: wrap;
 	order: 4;
 	display: flex;
@@ -113,7 +112,6 @@ html, body {
 }
 
 .buttons {
-	min-height: 100px;
     display: flex;
 	display: -webkit-flex;
 	flex-direction: column;
@@ -157,8 +155,12 @@ footer {
 	}
 
 	.pin-code {
-		margin: 0 1em 0 1em;
-		font-size: 2rem;
+		margin: 0 0.5em 0 0.5em;
+		font-size: 1.4rem;
+	}
+
+	.buttons {
+		margin-top: 5em;
 	}
 
 	.btn-talk {
@@ -216,6 +218,10 @@ footer {
 	.pin-code {
 		margin: 0 1em 0 1em;
 		font-size: 2.8rem;
+	}
+
+	.buttons {
+		margin-top: 10em;
 	}
 
 	.modal {
