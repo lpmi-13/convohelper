@@ -33,7 +33,7 @@ $(function() {
 	channel.bind('my_event', function(data) {
 		console.log('subscribed to ' + chatRoomName);
 		//add new message to the container
-		
+		console.log(data.message);
 		$('#prompt').text('');
 		$('#text-to-say').text('');
 		$('#prompt').text('Somebody else wants to talk');
