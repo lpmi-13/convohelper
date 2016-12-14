@@ -1,6 +1,7 @@
 $(function() {
 
-	$('#selection').on('click', function() {
+	$('#selection').change(function() {
+		console.log('fired');
 		$('#none').attr('disabled', true);
 		var numberOfGroups = $('#selection').find(':selected').val();
 		generateRoomCode(numberOfGroups);
