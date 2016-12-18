@@ -7,7 +7,7 @@ $(function() {
 	});
 
 	$('.btn-join').on('click', function() {
-		var chatRoomName = $('.enter-pin').val();
+		var chatRoomName = $('.enter-pin').val().toLowerCase();
 		if (chatRoomName.length > 4) {
 			console.log('joining' + chatRoomName);
 			joinChatRoom(chatRoomName);
