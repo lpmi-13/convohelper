@@ -18,7 +18,7 @@ $(function() {
 	});
 
 	function joinChatRoom(chatRoomName) {
-		var url = '/messages?room=' + chatRoomName;
+		var url = '/convohelper/messages?room=' + chatRoomName;
 		window.location.href = url;
 	}
 
