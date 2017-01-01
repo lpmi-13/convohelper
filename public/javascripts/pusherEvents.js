@@ -65,7 +65,7 @@ $(function() {
 		}
 
 		//send to server at route "/messages"
-		ajaxCall('/convohelper/messages', chat_message);
+		ajaxCall('/convohelpermessages', chat_message);
 		
 	});
 
