@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var Pusher = require('pusher');
-//var configVars = require('./envVars');
 var give = require('./giveFloor');
 
-var app_id = process.env.APP_ID || configVars.app_id;
-var app_key = process.env.APP_KEY || configVars.app_key;
-var app_secret = process.env.APP_SECRET || configVars.app_secret;
+var app_id = process.env.APP_ID; 
+var app_key = process.env.APP_KEY;
+var app_secret = process.env.APP_SECRET;
 
 var pusher = new Pusher({
   appId: app_id,
