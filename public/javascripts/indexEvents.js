@@ -1,58 +1,58 @@
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
-onsole.log/d
+$(function() {
+
+	$('#selection').change(function() {
+		$('#none').attr('disabled', true);
+		var numberOfGroups = $('#selection').find(':selected').val();
+		generateRoomCode(numberOfGroups);
+	});
+
+	$('.btn-join').on('click', function() {
+		var chatRoomName = $('.enter-pin').val().toLowerCase();
+		if (chatRoomName.length > 4) {
+			console.log('joining' + chatRoomName);
+			joinChatRoom(chatRoomName);
+		} else {
+			//send some alert to enter a room pin
+			console.log('computer says no');
+		}
+	});
+
+	function joinChatRoom(chatRoomName) {
+		var url = '/convohelpermessages?room=' + chatRoomName;
+		window.location.href = url;
+	}
+
+	function FYShuffle(array) {
+		var currentIndex = array.length, temporaryValue, randomIndex;
+
+		while (0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
+		return array;
+	}
+
+	function generateRoomCode(numberOfGroups) {
+		$('.group_pin').empty();
+
+		var newCode = Math.floor(Math.random() * 9999);
+		var chatRoomNamesArray = ['crimson', 'orange', 'maroon', 'green', 'blue', 'gray'];
+		var openChatRooms = [];
+
+		FYShuffle(chatRoomNamesArray);	
+
+		for (i = 0; i < numberOfGroups; i++) {
+			openChatRooms.push(chatRoomNamesArray[i]);
+		}
+
+		for (i = 0; i < numberOfGroups; i++) {
+			$('.group_pin').append('<p class="pin-code">' + newCode + '-' + openChatRooms[i] + '</p>');		
+		}
+
+	}
+
+});
