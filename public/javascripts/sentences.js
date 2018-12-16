@@ -6,7 +6,7 @@ sentences.disagree = ['I\'m not sure I agree', 'I don\'t really think so', 'well
 
 sentences.confirmation = ['So what you\'re saying is...', 'So in your view...', 'If I understand what you\'re saying...', 'So what you mean is...'];
 
-sentences.clarification = ['I\'m not sure I understand what you mean.','I didn\'t quite follow you.', 'Could you explain that point again, please?', 'Could you repeat that, plese?', 'Could you give an example of that, please?'];
+sentences.clarification = ['I\'m not sure I understand what you mean.','I didn\'t quite follow you.', 'Could you explain that point again, please?', 'Could you repeat that, please?', 'Could you give an example of that, please?'];
 
 sentences.reviewing = ['Coming back to what I said earlier...', 'To the point from earlier...', 'To go back to my earlier point...'];
 
