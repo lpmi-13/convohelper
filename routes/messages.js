@@ -17,23 +17,17 @@ var pusher = new Pusher({
 
 router.get('/', function(req, res, next) {
   var room = req.query.room;
-  console.log(room);
-  console.log('signing into room: ' + room);
   res.render('channel', { title : 'ConvoHelper'});
 });
 
 //respond to incoming pusher events
 router.post('/', function(req, res, next) {
   var socketID = req.body.socketId;
-  console.log('message from ' + socketID);
 
   var number = Math.floor(Math.random() * give.sentences.length);
-  console.log(number);
   var givingFloor = give.sentences[number];
-  console.log(givingFloor);
 
   var room = req.body.room;
-  console.log('sending ' + givingFloor);
   pusher.trigger(room, 'my_event', {'message': givingFloor}, socketID);
 });
 
